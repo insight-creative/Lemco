@@ -1,0 +1,64 @@
+.fix-head #masthead {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  background:white;
+  .custom-logo-link {
+    img {
+      transition:padding .3s, max-width .3s;
+    }
+  }
+}
+
+
+
+.has-banner.abs-head #masthead {
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  background:none;
+  transition:background .07s;
+  &:not(.active):not(.minimize) {
+    @extend .invert;
+  }
+
+}
+
+body.has-banner.fix-head.trans {
+
+  #masthead {
+    transition:background $trans * 3;
+    &:not(.active):not(.minimize) {
+      background:transparent;
+      @extend .invert;
+      }
+    }
+
+}
+
+body:not(.has-banner) {
+  .menu-toggle span {
+    background:$base-font-color !important;
+  }
+}
+
+body header.minimize {
+  box-shadow:0px 10px 20px rgba(0,0,0,.1) !important;
+  @media #{$tablet-up} {
+    .sub-menu {
+      box-shadow:0px 0px 40px rgba(0,0,0,.1);
+    }
+  .custom-logo-link {
+     img {
+        max-width:$logo / 1.5;
+        padding-top:$base;
+        padding-bottom:$base;
+      }
+    }
+  }
+}

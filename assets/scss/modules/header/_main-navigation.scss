@@ -1,0 +1,131 @@
+// Primary Nav
+//vars
+$link-margin: 1.3em; // spacing between nav items
+$headerFontSize: .78rem;
+$weight: 900;
+
+.main-navigation {
+  font-weight: $weight;
+  text-transform: uppercase;
+  font-size: $headerFontSize;
+  letter-spacing: $letter-space;
+  justify-self: flex-end;
+  margin-left: auto;
+
+  &:not(.active):not([style*='block']) {
+    display: none;
+    box-shadow: none;
+  }
+
+  &[style*='block'] {
+    @extend .box-shadow;
+  }
+
+  ul {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  // highlight colors
+  @import 'menu-links';
+
+  .seperator {
+    visibility: hidden;
+  }
+
+  li {
+    list-style-type: none;
+
+    a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      display: block;
+      width: 100%;
+      color: white;
+      @media #{$tablet-up} {
+        transition: color $trans, border-color $trans;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+      //border-top: $border-width solid transparent;
+      //border-bottom: $border-width solid transparent;
+    }
+  }
+  width: 100%;
+  @media #{$tablet} {
+    .header-search {
+      margin-top: 10px;
+    }
+
+    .seperator {
+      display: none;
+    }
+
+    a:hover {
+      background: $primary;
+      color: #000;
+    }
+    font-size: .9rem;
+
+    > div {
+      padding-top: 10px;
+      margin-left: -$base;
+      margin-right: -$base;
+
+      a,
+      li.header-search {
+        padding-left: $base;
+        padding-right: $base;
+        border: none;
+      }
+    }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: $secondary;
+    padding: 0 $base $base;
+
+    li {
+      &:not(.header-search) a {
+        padding-top: .75em;
+        padding-bottom: .75em;
+      }
+    }
+  }
+  @media #{$tablet-up} {
+    display: block !important;
+    width: auto;
+    box-shadow: none;
+
+    ul:not(.sub-menu) {
+      .seperator {
+        &:first-child {
+          display: none;
+        }
+      }
+      margin-top: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      > li {
+        @media #{$tablet-up} {
+          margin: 0 $link-margin;
+        }
+        @media (max-width:899px) {
+          margin: 0 $link-margin / 1.5;
+        }
+
+        &:last-child:not(.header-search) {
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+}

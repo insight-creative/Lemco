@@ -1,0 +1,89 @@
+html {
+  font-size: $base-font-size;
+  @media #{$tablet} {
+    font-size: $base-font-size - 1px;
+  }
+  @media #{$mobile} {
+    //font-size:$base-font-size - 2px;
+  }
+}
+
+body {
+  font-family: $heading-font;
+  color: $base-font-color;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("assets/img/mainbg.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-color: $light-gray;
+  letter-spacing: -.02em;
+  font-weight: 400;
+}
+
+ol,
+ul {
+  padding-left: 1em;
+  margin-bottom: 1.5em;
+
+  .entry-content &,
+  .widget & {
+    li {
+      margin-bottom: .35em;
+    }
+  }
+}
+
+#content li {
+  margin-bottom: .5em;
+}
+
+dir,
+menu {
+  padding-left: 0;
+}
+
+address,
+dd,
+dl,
+dt,
+p {
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+blockquote {
+  display: inline-block;
+  margin: 0;
+  padding: .25em 0;
+  font-size: 1.25rem;
+  font-style: italic;
+
+  &,
+  & * {
+    line-height: 1.5;
+  }
+}
+
+hr {
+  margin: 2em 0;
+  border-color: $gray;
+  border-style: solid;
+  border-width: 1.5px;
+}
+
+.lead {
+  font-weight: 300;
+  margin-bottom: 1em;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: $letter-space * 3;
+  font-size: 1.1rem;
+  font-family: $heading-font;
+}
+@import 'headings';

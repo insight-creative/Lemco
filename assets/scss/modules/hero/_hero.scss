@@ -1,0 +1,104 @@
+// Hero
+
+#hero {
+  letter-spacing: .02em;
+  //overflow:hidden;
+  position: relative;
+  background-color: darken($dark-gray, 10%);
+  // if more than one banner slide
+  @import 'slider';
+
+  .slide {
+    &.no-overlay {
+      &:after,
+      &:before {
+        content: none !important;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      opacity: .4;
+      height: 100% !important;
+    }
+    // single hero
+    @extend .text-shadow;
+    @include pad($xl);
+
+    body.home & {
+      @include pad($xl);
+      @include overlay(#4e540b, .25);
+
+      &:after {
+        opacity: .25;
+      }
+    }
+    @include overlay(#4e540b, .3);
+
+    &:after {
+      height: 150px;
+    }
+    position: relative;
+    overflow: hidden;
+
+    > img {
+      //filter:contrast(100%) sepia(20%);
+      @extend .bg-img;
+      //filter:grayscale(50%);
+    }
+  }
+
+  .container {
+    @extend .bring-forth;
+    @import 'hero-content';
+  }
+
+  body.home & {
+    //  @extend .full-height;
+  }
+}
+// body conditionals
+
+.has-banner {
+  &:not(#{$archives}) {
+    #primary {
+      .entry-header,
+      .post-thumbnail {
+        display: none;
+      }
+    }
+  }
+}
+// full vh hero
+
+.full-height {
+  //text-align:center;
+  #hero,
+  #hero .slide {
+    height: 100vh;
+    //  min-height:$screen_sm - 150px;
+  }
+
+  #hero .container {
+    @include vert_align;
+    //margin:0 auto;
+    //display:inline-block;
+    left: 0;
+    right: 0;
+    margin-top: 0 !important;
+
+    .hero-content {
+      padding: 100px 0;
+      @media #{$tablet} {
+        padding: 50px 0;
+      }
+      //margin:0 auto;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+// Menu Toggle
+
+//vars
+$toggleWidth: 35px;
+
+#page .menu-toggle {
+  @media #{$mobile} {
+    transform:scale(.8);
+    transform-origin:center right;
+  }
+  @media #{$tablet-up} {
+    display:none;
+  }
+  margin:0;
+  min-height:$toggleWidth;
+  width:$toggleWidth;
+  cursor:pointer;
+  background:none;
+  appearance:none;
+  border:none;
+  margin-left:auto;
+  padding-right:0;
+  padding-left:0;
+  z-index:999999;
+  span {
+    display:block;
+    height:2px;
+    body.fix-head.trans #masthead:not(.active):not(.minimize) &,
+    body.abs-head #masthead:not(.active):not(.minimize) &  {
+      background:#fff; // invert
+    }
+    background:white !important;
+    margin-bottom:7px;
+    width:$toggleWidth;
+    &:last-child {
+      margin:0;
+    }
+  }
+  &[aria-expanded='true'] {
+    span {
+      &:last-child {
+        display:none;
+      }
+      &:nth-child(2) {
+        transform:rotate(45deg);
+        margin:0;
+      }
+      &:first-child {
+        transform:rotate(-45deg);
+        margin:0;
+        position:relative;
+        top:1px;
+      }
+    }
+  }
+}

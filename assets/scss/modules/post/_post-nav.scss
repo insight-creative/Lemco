@@ -1,0 +1,77 @@
+.post-navigation,
+.posts-navigation {
+  margin: 2em 0;
+
+  .nav-previous {
+    &:only-child {
+      justify-self: flex-start;
+      margin-right: auto;
+    }
+
+    &:before {
+      body:not(.search) & {
+        content: 'Previous';
+      }
+      display: block;
+      clear: both;
+      text-transform: uppercase;
+      font-size: .75rem;
+      text-align: left;
+      margin-bottom: 5px;
+      letter-spacing: .04em;
+    }
+
+    a {
+      @include link_icon('left', '\f27d');
+    }
+  }
+
+  .nav-next {
+    &:only-child {
+      justify-self: flex-end;
+      margin-left: auto;
+    }
+
+    &:before {
+      body:not(.search) & {
+        content: 'Next';
+      }
+      display: block;
+      clear: both;
+      text-transform: uppercase;
+      font-size: .8rem;
+      text-align: right;
+      margin-bottom: 5px;
+      letter-spacing: .04em;
+    }
+
+    a {
+      @include link_icon('right','\f287');
+    }
+  }
+
+  .nav-links {
+    > div:before {
+      @media #{$mobile} {
+        text-align: center;
+        display: none;
+      }
+    }
+    margin-left: -$base;
+    margin-right: -$base;
+
+    > div {
+      padding: $base / 2 $base;
+      @media #{$mobile-up} {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    @media #{$mobile-up} {
+      display: flex;
+      justify-content: space-between;
+    }
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,37 @@
+ul {
+  li {
+    #{$conditional-links} { // vars
+      > a {
+        color: $primary !important;
+      //  border-bottom-color: $primary;
+        @media #{$tablet} {
+          .mobile-toggle span {
+            border-color: white !important;
+          }
+          color: #000 !important;
+          background: $primary !important;
+        }
+      }
+    }
+  }
+
+  &.sub-menu {
+    li {
+      a {
+        color: $secondary !important;
+      }
+
+      #{$conditional-links}, //vars
+      &:hover {
+        > a {
+          background: $primary !important;
+          color: white !important;
+          @media #{$tablet} {
+            color: white !important;
+            background: $primary !important;
+          }
+        }
+      }
+    }
+  }
+}

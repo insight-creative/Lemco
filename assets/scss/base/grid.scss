@@ -1,0 +1,255 @@
+// Base screen sizes
+$screen_xl: 1500px;
+$screen_lg: 1192px;
+$screen_md: 768px;
+$screen_sm: 480px;
+$xl-max: $screen_xl - 1px;
+$lg-max: $screen_lg - 1px;
+$md-max: $screen_md - 1px;
+$sm-max: $screen_sm - 1px;
+$mobile: '(max-width:$sm-max)';
+$tablet: '(max-width:$md-max)';
+$desktop: '(max-width:$lg-max)';
+$hd: '(max-width:$xl-max)';
+$mobile-up: '(min-width:$screen_sm)';
+$tablet-up: '(min-width:$screen_md)';
+$desktop-up: '(min-width:$screen_lg)';
+$hd-up: '(min-width:$screen_xl)';
+$gutter: $base * 2;
+$content_width: $screen_md + $gutter * 5; // Container
+
+.container {
+  margin: 0 auto;
+  @media #{$desktop-up} {
+    max-width: $screen_lg - $base;
+  }
+  @media #{$tablet-up} {
+    max-width: $screen_md - $base;
+  }
+  padding-left: $base;
+  padding-right: $base;
+}
+// Row
+
+.row {
+  margin-left: -$base;
+  margin-right: -$base;
+  @include flex;
+}
+// Responsive Padding
+$baseval: $base-font-size; // base size value
+$height: 849px; // to break at screen height
+$div: 1.75; // division value
+$xs: $baseval * 1.5;
+$sm: $baseval * 3;
+$md: $baseval * 5;
+$lg: $baseval * 7;
+$xl: $baseval * 11;
+$xxl: $baseval * 13;
+@mixin pad($val: $md) {
+  padding-top: $val;
+  padding-bottom: $val;
+  @media #{$mobile}, (max-height:$height) {
+    padding-top: $val / $div * 1.2;
+    padding-bottom: $val / $div * 1.2;
+  }
+  @media #{$mobile} {
+    padding-top: $val / $div / 1.2;
+    padding-bottom: $val / $div / 1.2;
+  }
+}
+// Grid event columns
+@mixin even_columns($gxl: 4, $gl: 3, $gm: 2, $gs: 1, $space: $base / 2) {
+  &:not(.flickity-enabled) {
+    // different styling for carousel, see below
+    @include flex;
+    margin: -$space;
+
+    > *:not(h2) {
+      // elements to expect
+      padding: $space;
+      width: calc(100% / #{$gxl});
+      flex-basis: calc(100% /#{$gxl});
+      max-width: calc(100% / #{$gxl});
+      @media #{$desktop} {
+        width: calc(100% / #{$gl});
+        flex-basis: calc(100% / #{$gl});
+        max-width: calc(100% / #{$gl});
+      }
+      @media #{$tablet} {
+        width: calc(100% / #{$gm});
+        max-width: calc(100% / #{$gm});
+        flex-basis: calc(100% / #{$gm});
+      }
+      @media #{$mobile} {
+        width: calc(100% / #{$gs});
+        max-width: calc(100% / #{$gs});
+        flex-basis: calc(100% / #{$gs});
+      }
+    }
+  }
+
+  &.flickity-enabled {
+    display: block;
+
+    .flickity-page-dots {
+      left: $base;
+    }
+
+    .flickity-viewport {
+      .flickity-page-dots {
+        left: $base;
+      }
+      @media #{$tablet-up} {
+        // hide spacing on either side of slider
+        -webkit-clip-path: inset(0 $space 0 $space);
+        clip-path: inset(0 $space 0 $space);
+      }
+    }
+
+    .flickity-slider {
+      > * {
+        padding-left: $space;
+        padding-right: $space;
+        width: calc(100% / #{$gxl});
+        flex-basis: calc(100% /#{$gxl});
+        max-width: calc(100% / #{$gxl});
+        @media #{$desktop} {
+          width: calc(100% / #{$gl});
+          flex-basis: calc(100% / #{$gl});
+          max-width: calc(100% / #{$gl});
+        }
+        @media #{$tablet} {
+          width: calc(100% / #{$gm});
+          max-width: calc(100% / #{$gm});
+          flex-basis: calc(100% / #{$gm});
+        }
+        @media #{$mobile} {
+          width: calc(100% / #{$gs});
+          max-width: calc(100% / #{$gs});
+          flex-basis: calc(100% / #{$gs});
+        }
+      }
+    }
+  }
+}
+// 50/50 split content
+@mixin fifty_fifty {
+  @include flex($tablet);
+  @media #{$tablet-up} {
+    > *:first-child {
+      max-width: 45%;
+      flex-basis: 45%;
+      margin-right: 5%;
+    }
+
+    > *:last-child {
+      max-width: 45%;
+      flex-basis: 45%;
+      margin-left: 5%;
+    }
+  }
+  @media #{$tablet} {
+    > * {
+      &:first-child {
+        margin-bottom: 2em;
+      }
+      width: 100%;
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+}
+//Content / Sidebar
+$sidebar: 27%;
+@mixin content_side($arg: 'right') {
+  @include flex($tablet);
+  @media #{$tablet-up} {
+    justify-content: space-between;
+
+    > *:first-child {
+      margin-right: 5%;
+      max-width: 70%;
+      flex: 1;
+
+      @if $arg != 'right' {
+        order: 2;
+        margin-left: 5%;
+        margin-right: 0;
+      }
+    }
+
+    > *:last-child {
+      width: $sidebar;
+      flex-basis: $sidebar;
+      max-width: $sidebar;
+
+      @if $arg != 'right' {
+        order: 1;
+      }
+    }
+  }
+  @media #{$tablet} {
+    > * {
+      &:first-child {
+        margin-bottom: 3em;
+      }
+      width: 100%;
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+}
+// Flex widths
+@mixin width($arg) {
+  max-width: $arg;
+  flex-basis: $arg;
+  max-width: $arg;
+}
+
+.col {
+  @include width(100%);
+}
+
+.col-2 {
+  @include width(50%);
+}
+
+.col-3 {
+  @include width(33.3%);
+}
+
+.col-4 {
+  @include width(25%);
+}
+
+.col-5 {
+  @include width(20%);
+}
+
+.col-6 {
+  @include width(16.6%);
+}
+
+.col-7 {
+  @include width(14.2%);
+}
+
+.col-8 {
+  @include width(12.5%);
+}
+
+img {
+  display: block;
+}
+
+.headline-container {
+  @include pad($md);
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  @include headings {
+    @include bars(#333);
+    margin: 0;
+  }
+}

@@ -1,0 +1,88 @@
+// Header
+
+.site-header {
+  background: none;
+  position: relative;
+  z-index: 9999;
+  @media #{$tablet-up} {
+    overflow:hidden;
+  }
+  font-family: $heading-font;
+  .header-container {
+    background:$secondary;
+    @include pseudo_width;
+  }
+  .container {
+    max-width:100%;
+    @media #{$desktop-up} {
+      padding-left:$base * 3;
+      padding-right:$base * 3;
+    }
+  }
+
+  .container {
+    p {
+      margin: 0;
+    }
+    @include flex('full');
+    align-items: center;
+    justify-content: space-between;
+  }
+  // mobile
+  @media #{$tablet-up} {
+    .menu-toggle {
+      display: none;
+    }
+
+    .main-navigation {
+      display: block;
+    }
+  }
+  @media #{$tablet} {
+    &.active {
+      background: white !important;
+    }
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .header-social {
+    ul {
+      margin: 0;
+    }
+
+    > span {
+      @media #{$mobile} {
+        display: none;
+      }
+    }
+  }
+  .search-form input {
+    border-top:none !important;
+    border-left:none !important;
+    border-right:none !important;
+    min-width:200px;
+  }
+}
+
+body:not(.has-banner) {
+    .top-banner + .container {
+      background:none !important;
+    }
+  //  @extend .box-shadow;
+    //  }
+  }
+
+// imports
+@import 'pre-header';
+@import 'main-navigation'; // Primary + Mobile nav
+@import 'site-branding'; // Logo
+@import 'menu-toggle'; // Hamburger
+@import 'fixed-head'; // Fixed or Absolute Pos Head
+@import 'header-search'; // Header search
+@import 'crumb'; // Breadcrumb (NavXT)
+@import 'header-centered';
+@import 'dropdown';
+@import 'reverse-nav';

@@ -1,0 +1,105 @@
+// ALL BUTTONS
+//vars
+$buttonPad: $base / 1.75 $base / 1.25; // for all buttons/inputs
+
+#{$all-buttons} {
+  padding: $buttonPad;
+  min-width: $base-font-size * 8;
+  font-family: $heading-font;
+  transition: all $trans * 2;
+  text-align: center;
+  font-weight: 800;
+  display: inline-block;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: .85rem;
+  border-radius: 1px;
+  margin-bottom: .7em;
+  line-height: 1;
+  cursor: pointer;
+  @media #{$mobile-up} {
+    &:not(:last-child) {
+      margin-right: .7em;
+    }
+  }
+}
+
+.gform_button {
+  line-height: .4 !important;
+}
+
+button[type=reset],
+input[type=reset] {
+  @extend .btn;
+  border: none;
+}
+
+#{$all-buttons},
+#{$all-text} {
+  @media #{$mobile} {
+    width: 100%;
+    display: block;
+  }
+}
+
+.link-alt {
+  @include link_icon('after', $base-link-icon);
+  font-family: $heading-font;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+// Button types
+
+.btn {
+  background: $primary;
+  color: $tertiary;
+  border-bottom: 3px solid #f9b504;
+
+  &:hover {
+    background: $secondary;
+    border-color: darken($tertiary, 2%);
+    color: white !important;
+  }
+
+  &:after {
+    content: ' »';
+  }
+}
+
+.btn-alt {
+  background: none;
+  color: white;
+  border: $border-width solid white;
+  border-radius: 0;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+    background: none;
+  }
+}
+// Add icons to links/buttons
+
+.icon-left {
+  @include link_icon('left')
+}
+
+.icon-right {
+  @include link_icon('right');
+}
+// global links
+
+a {
+  text-decoration: none;
+  color: $secondary;
+  font-weight: 900;
+  @media #{$tablet-up} {
+    cursor: pointer;
+    transition: color $trans;
+  }
+  cursor: pointer;
+
+  &:hover {
+    color: lighten($tertiary, 20%);
+  }
+}

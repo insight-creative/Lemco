@@ -1,0 +1,165 @@
+//Dropdown
+//vars
+$dropSpace: $base * 1.5;
+$subBgDesktop: #fff;
+$subBgMobile: $secondary;
+$subLinkMobile: #fff;
+$caretWidth: 10px;
+$subMenuWidth: $base * 12;
+
+#masthead li.menu-item-has-children {
+  > a {
+    position: relative;
+    z-index: 999;
+  }
+  position: relative;
+  // base sub menu
+  .sub-menu {
+    display: none;
+    @media #{$tablet-up} {
+      position: absolute;
+      left: -$base;
+      right: auto;
+      top: 100%;
+      margin-top: $dropSpace;
+      width: $subMenuWidth;
+      background: $subBgDesktop;
+      border: $border-width solid $light-gray;
+    }
+    background: $subBgMobile;
+
+    li {
+      padding: 0;
+    }
+
+    a {
+      transition: none;
+      padding: $base / 2 $base;
+      @media #{$tablet} {
+        padding-left: $base * 1.5;
+        color: $subLinkMobile !important;
+      }
+    }
+    // fills space between link and sub menu for hover
+    &:after {
+      content: '';
+      position: absolute;
+      top: -$dropSpace + -$border-width;
+      height: $dropSpace;
+      left: 0;
+      right: 0;
+      display: block;
+      background: transparent;
+      z-index: 1;
+    }
+  }
+  // hover effects
+  &:hover {
+    a:after,
+    a:before {
+      display: block;
+    }
+
+    .sub-menu {
+      @media #{$tablet-up} {
+        display: block;
+      }
+    }
+  }
+
+  > a {
+    // for caret
+    position: relative;
+
+    &:after {
+      // main caret
+      @media #{$tablet-up} {
+        pointer-events: none;
+        content: '';
+        pointer-events: none;
+        display: none;
+        bottom: -$dropSpace + -$border-width * 2;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 $caretWidth $caretWidth $caretWidth;
+        border-color: transparent transparent $subBgDesktop transparent !important;
+        position: absolute;
+        z-index: 9;
+      }
+    }
+    // shadow for caret
+    &:before {
+      @media #{$tablet-up} {
+        content: '';
+        pointer-events: none;
+        display: none;
+        bottom: -$dropSpace + -$border-width * 2;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 $caretWidth + $border-width * 1.5 $caretWidth + $border-width * 1.5 $caretWidth + $border-width * 1.5;
+        border-color: transparent transparent $light-gray transparent !important;
+        position: absolute;
+        z-index: 9;
+      }
+    }
+  }
+  // button to toggle mobile sub-menus
+  > a .mobile-toggle {
+    display: none;
+    @media #{$tablet} {
+      display: block;
+      position: absolute;
+      right: $base;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99999;
+      height: $base * 1.25;
+      width: $base * 1.25;
+      @media #{$mobile-up} and #{$tablet} {
+        margin-right: 4px;
+      }
+      border: 2px solid transparent;
+      text-align: center;
+
+      span {
+        height: $base / 2;
+        width: $base / 2;
+        border: 2px solid $secondary;
+        border-top: none;
+        border-right: none;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        transform: rotate(-45deg);
+      }
+
+      &.active span {
+        transform: rotate(135deg);
+        margin-top: 8px;
+      }
+    }
+  }
+  // desktop caret to signify dropdown
+  @media #{$tablet-up} {
+    > a .desktop-dropdown {
+      content: '';
+      margin-left: $base / 1.5;
+      display: inline-block;
+      transform: rotate(45deg) translateY(50%);
+      border: 2px solid currentColor;
+      height: $base / 2.75;
+      width: $base / 2.75;
+      border-left: 0;
+      border-top: 0;
+      vertical-align: super;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.error404 {
+  .page-title {
+    @media #{$tablet-up} {
+      font-size:7rem;
+    }
+    font-size:5rem;
+    small {
+      font-size:30%;
+    }
+  }
+  .page-content {
+    .widget {
+      padding:0;
+      margin:0;
+      padding-top:1em;
+      margin-top:1em;
+    }
+  }
+}

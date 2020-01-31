@@ -1,0 +1,98 @@
+// for the h1
+@include headings {
+  font-family: $heading-font;
+  margin-bottom: .5em;
+  margin-top: 0;
+  line-height: $line-height / 1.5;
+  font-weight: 900;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+
+  > small {
+    font-size: $base-font-size * 1.1;
+    @extend .lead;
+    letter-spacing: .01em;
+    font-weight: bold;
+    //font-family:$base-font;
+    margin-bottom: .5em;
+    @media #{$mobile} {
+      font-size: 15px;
+    }
+  }
+
+  img + & {
+    margin-top: $base;
+  }
+
+  &:not(:first-child):not(:first-of-type) {
+    margin-top: .25em;
+  }
+}
+// h1 size var
+$heading: 3.75rem;
+
+.h1,
+h1 {
+  font-size: $heading;
+  @media #{$tablet} {
+    font-size: $heading / 1.25;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 1.5;
+  }
+}
+
+.h2,
+h2 {
+  font-size: $heading / 2;
+  @media #{$tablet} {
+    font-size: $heading / 2.3;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 2.6;
+  }
+}
+
+.h3,
+h3 {
+  font-size: $heading / 2.2;
+  @media #{$tablet} {
+    font-size: $heading / 2.6;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 2.8;
+  }
+}
+
+.h4,
+h4 {
+  font-size: $heading / 2.4;
+  @media #{$tablet} {
+    font-size: $heading / 2.8;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 3.1;
+  }
+}
+
+.h5,
+h5 {
+  font-size: $heading / 2.75;
+  @media #{$tablet} {
+    font-size: $heading / 3;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 3.25;
+  }
+}
+
+.h6,
+h6 {
+  font-size: $heading / 3.5;
+  @media #{$tablet} {
+    font-size: $heading / 3.75;
+  }
+  @media #{$mobile} {
+    font-size: $heading / 4;
+  }
+}

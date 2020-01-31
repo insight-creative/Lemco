@@ -1,0 +1,56 @@
+// hero content
+
+.hero-content {
+  text-transform: uppercase;
+
+  p + h1 {
+    @media #{$tablet-up} {
+      margin-top: -.25em;
+    }
+    margin-top: -.5em;
+  }
+
+  body.home & {
+    margin: 0 auto;
+    text-align: center;
+    max-width: $screen_md !important;
+  }
+
+  p {
+    font-family: $base-font;
+    font-weight: bold;
+    font-size: 1.3em; // other than headline type size
+
+    body:not(.page) & {
+      font-size: 1.05rem;
+    }
+    @media #{$tablet} {
+      font-size: 1rem;
+    }
+  }
+
+  body:not(.home) & {
+    max-width: $screen_md;
+  }
+  @extend .invert;
+  max-width: $content_width;
+  @include equal_margin($base);
+  @extend .last-margin;
+
+  small {
+    font-family: $base-font;
+  }
+
+  .btn {
+    @media #{$mobile-up} {
+      transform: scale(1.2);
+      transform-origin: center top;
+      padding: $base / 1.5 $base * 1.25;
+    }
+  }
+  @media #{$mobile} {
+    h1 {
+      font-size: 2.1rem;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+#crumb {
+  background:#000;
+  color:white;
+  overflow-x:auto;
+  .container {
+    white-space:nowrap;
+    .crumb-wrapper > span:last-child {
+      padding-right:$base;
+    }
+  }
+  font-weight:900;
+  text-transform:uppercase;
+  body.home & {
+    display:none;
+  }
+  a {
+    font-weight:900;
+    color:white;
+    &:hover {
+      opacity:$opac;
+    }
+  }
+  .container {
+    padding-top:0;
+    padding-bottom:0;
+  }
+  padding:$base / 1.75 0;
+  font-family:$heading-font;
+  font-size:.7em;
+  letter-spacing:.02em;
+  position:relative;
+  z-index:999;
+  .crumb-seperator {
+    display:inline-block;
+    margin:0 .75em 0 .75em;
+  }
+  .home {
+    color:$primary;
+    width:0;
+    font-size:.9rem;
+    position:relative;
+    top:1px;
+    color:$primary;
+    overflow:hidden;
+    span {
+      display:none;
+    }
+    &:after {
+      content: "\f448"; // home icon
+      font-family:ionicons;
+    }
+  }
+  &.has-banner {
+    #hero {
+      #crumb {
+        display:none;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+$fieldPadding: $base / 1.5;
+
+#{$all-text} {
+  padding: $fieldPadding;
+  width: 100%;
+  border: 2px solid $light-gray;
+  box-shadow: none;
+  margin: .5em 0;
+  appearance: none;
+  border-radius: 1px;
+  background: white;
+  font-family: $heading-font;
+  @include iOS {
+    line-height: 21px;
+  }
+}
+
+form:not(.search-form) label {
+  + input,
+  + select,
+  + textarea {
+    margin-top: 0 !important;
+  }
+}
+
+select {
+  margin: 1em 0;
+  color: #666;
+}
+
+select[size='1'],
+select {
+  background-image: url("data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==");
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: 99% center;
+  font-size: .9rem;
+}
+
+select[size]:not([size='1']) {
+  padding: 0;
+
+  option {
+    display: block;
+    padding: $base / 3 $base / 2;
+  }
+}
+
+textarea {
+  min-height: 175px;
+  max-width: 100% !important;
+}
+
+form {
+  legend {
+    padding: 0 $base / 2;
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    margin-right: 3px;
+  }
+
+  button,
+  input[type=submit] {
+    cursor: pointer;
+
+    &:not(#searchsubmit) {
+      @extend .btn;
+    }
+    border: none;
+    margin-top: $base;
+  }
+  font-family: $heading-font;
+
+  label {
+    margin-bottom: .75em;
+    display: block;
+  }
+
+  ::placeholder {
+    font-size: .9rem;
+    letter-spacing: .06em;
+    //text-transform:uppercase;
+    color: #666;
+  }
+
+  fieldset {
+    padding: $base;
+    margin: $base * 1.5 0;
+  }
+}
+
+form {
+  @include headings {
+    font-weight: 900 !important;
+  }
+
+  input {
+    min-height: 1px !important;
+    line-height: initial !important;
+  }
+}
+//gform
+
+.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+  padding: $fieldPadding !important;
+}
+
+.gform_wrapper {
+  margin-top: 0 !important;
+}
+
+#page .gform_title {
+  @extend .h3;
+  margin: 1em 0;
+  display: none;
+}
+
+.gform_button {
+  padding: $base / 1.2 !important;
+}
+
+.gfield_label,
+.ginput_container {
+  margin: 0 !important;
+}
+
+.gform_fields > li:first-child {
+  margin-top: 0 !important;
+}
+// iframe
+
+iframe {
+  max-width: 100%;
+  width: 100%;
+  border: $border-width solid $gray;
+}

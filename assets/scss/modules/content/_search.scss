@@ -1,0 +1,32 @@
+.search-form {
+  label {
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  position: relative;
+
+  button {
+    font-size: 1.3rem;
+    @extend .erase;
+    padding: 18px;
+    @include vert_align;
+    right: $base / 3;
+    margin-top: 0;
+  }
+}
+
+#content .search-form {
+  button {
+    right: 0;
+  }
+}
+
+.error404,
+.search {
+  #content > .container {
+    max-width: $screen_md !important;
+  }
+}

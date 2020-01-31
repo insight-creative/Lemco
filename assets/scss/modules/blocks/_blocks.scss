@@ -1,0 +1,86 @@
+//BLOCKS
+
+// Column block
+.wp-block-columns {
+  margin-left:-$base;
+  margin-right:-$base;
+  @media #{$tablet} {
+    flex-direction:column;
+  }
+}
+.wp-block-column {
+  @media #{$tablet} {
+    @include width(100%);
+    margin:0;
+  }
+  flex-grow: 0;
+  margin:0 !important;
+  padding-left:$base;
+  padding-right:$base;
+}
+
+
+// Media text block
+#page .wp-block-media-text {
+  align-items:flex-start;
+  body:not(.page-template-page-full-width-template) & {
+    @media #{$desktop} {
+      display:flex;
+      flex-direction:column;
+      > div {
+        width:100%;
+        padding:0;
+        padding-top:$base;
+        }
+      }
+    }
+  .page-template-page-full-width-template {
+    @media #{$tablet} {
+      display:flex;
+      flex-direction:column;
+      > div {
+        width:100%;
+        padding:0;
+        padding-top:$base;
+      }
+    }
+  }
+}
+
+//Button
+
+.wp-block-button {
+  margin-bottom:.5em;
+  > a {
+    @extend .btn;
+  }
+  &.is-style-outline {
+    a {
+      @extend .btn-alt;
+    }
+  }
+}
+
+// Gallery
+
+.wp-block-gallery.carousel {
+  *:not(button):not(.dot):not(ul) {
+    width:100% !important;
+  }
+  .blocks-gallery-item {
+    width:100% !important;
+  }
+  &.flickity-enabled {
+    li:not(.dot) {
+      width:100%;
+      margin-bottom:0;
+      margin:0 $base;
+    }
+  }
+}
+
+//table
+
+.wp-block-table {
+  margin: 2em 0;
+}

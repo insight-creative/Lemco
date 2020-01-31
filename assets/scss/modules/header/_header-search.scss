@@ -1,0 +1,45 @@
+// header search
+
+#page .site-header .main-navigation {
+  @media #{$tablet-up} {
+    li:nth-last-child(2) {
+      margin-right: 0;
+    }
+    position: relative;
+
+    .header-search {
+      margin-left: 0;
+      display: none;
+    }
+
+    .search-form {
+      button {
+        right: -$base * 1.8;
+      }
+
+      input {
+        @include vert_align;
+        right: -$base * 1.8;
+        opacity: 0;
+        transition: width $trans * 1.5, opacity $trans * 1.5;
+        margin: 0;
+      }
+
+      &:hover {
+        #searchsubmit {
+          color: $base-font-color !important;
+        }
+      }
+
+      &:hover input,
+      input:focus {
+        opacity: 1;
+        width: $base * 12;
+      }
+    }
+  }
+
+  button {
+    right: 0;
+  }
+}

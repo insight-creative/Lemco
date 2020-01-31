@@ -1,0 +1,152 @@
+.single-product {
+  #product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -3px;
+
+    a {
+      @media #{$mobile} {
+        width: 25%;
+        flex-basis: 25%;
+      }
+      padding: 3px;
+      width: 20%;
+      flex-basis: 20%;
+    }
+    padding-top: 3px;
+  }
+
+  #primary {
+    padding-right: 0 !important;
+
+    iframe {
+      border: none !important;
+    }
+  }
+
+  .images .container,
+  .nav-wrapper nav {
+    max-width: $content_width !important;
+    @extend .container;
+  }
+
+  .nav-wrapper {
+    background: $light-gray;
+    @include overlay(#000, .075);
+    //  color: white;
+    a {
+      font-weight: 900;
+      //color: white;
+      &:hover {
+        color: lighten($secondary, 15%);
+      }
+    }
+
+    nav {
+      padding-top: $base;
+      padding-bottom: $base;
+    }
+  }
+
+  .tab.active,
+  .tab:hover {
+    color: #000;
+  }
+
+  .tabs {
+    margin-bottom: 2em;
+    //  display:flex;
+    width: 100%;
+
+    .tab {
+      //  flex:1;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: .9rem;
+      opacity: .8;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 12px;
+        margin: 0 1.5em;
+        background: $secondary;
+        position: relative;
+        top: -1px;
+        vertical-align: middle;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+      @media #{$mobile} {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        background: $secondary;
+        margin: 3px 0;
+        text-align: center;
+        color: #fff;
+
+        &:after {
+          content: none;
+          text-align: center;
+        }
+
+        &.active {
+          background: $primary;
+          color: #000;
+          opacity: 1;
+        }
+
+        &:not(.active):hover {
+          opacity: .9;
+        }
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tab-panels {
+    .panel:not(:first-child) {
+      display: none;
+    }
+  }
+
+  #page .images ol.flickity-page-dots .dot {
+    border-color: #000;
+
+    &.is-selected,
+    &:hover {
+      background: #000 !important;
+    }
+  }
+}
+
+.gallery-item {
+  cursor: zoom-in;
+  display: block;
+
+  a {
+    cursor: zoom-in;
+  }
+
+  &:hover img {
+    outline: $border-width solid $primary;
+  }
+}
+
+#type-desc {
+  @include pad;
+  @include overlay(#000, .075);
+
+  .container {
+    max-width: $screen_md !important;
+  }
+}
