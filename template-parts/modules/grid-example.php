@@ -2,7 +2,7 @@
   <div class="container">
     <div style="text-align:center;">
       <?php if(is_front_page()) : ?>
-        <h4><small>Featured</small>Attachments &amp; Handlers</h4>
+        <h4><small>Featured</small>Attachments and Handlers</h4>
       <?php else : ?>
         <h3>Related Products</h3>
 

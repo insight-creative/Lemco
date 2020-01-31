@@ -71,7 +71,7 @@ function contact_info($map = '') {
 $address = nl2br(get_theme_mod('heartwood_address'));
 if($map == 'map') :
 
-echo '<iframe src="https://maps.google.com/maps?&amp;q='.urlencode(get_theme_mod('heartwood_address')).'&output=embed" width="600" height="240" frameborder="0" allowfullscreen></iframe>';
+echo '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10885.521025182721!2d-93.6010215!3d46.9935061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x384e960fee15a1f!2sLemco%20Hydraulics%20Inc!5e0!3m2!1sen!2sus!4v1580485506851!5m2!1sen!2sus" width="600" height="240" frameborder="0" style="border:0;" allowfullscreen=""></iframe>';
 endif;
 echo '<br><br><h5> '. get_bloginfo('name') . '</h5>';
 if ($address != '') {
